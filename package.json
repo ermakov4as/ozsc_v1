@@ -1,6 +1,6 @@
 {
   "name": "ozsc_v1",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,8 +11,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "primeicons": "^7.0.0",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuetify": "^3.6.4"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
