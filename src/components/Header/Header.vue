@@ -16,10 +16,18 @@
                     grow
                 >
                     <v-tab
+                        v-for="item in fixedItems"
+                        :key="item.name"
+                        :text="item.name"
+                        :value="'tab-' + item.name"
+                        :to="item.path"
+                    ></v-tab>
+                    <v-tab
                         v-for="item in items"
-                        :key="item"
-                        :text="item"
-                        :value="'tab-' + item"
+                        :key="item.name"
+                        :text="item.name"
+                        :value="'tab-' + item.name"
+                        :to="item.path"
                     ></v-tab>
                     <!-- TODO: нужно сделать, чтобы клик по любому месту v-tab ниже открывал "Другое" -->
                     <v-tab>
@@ -38,8 +46,9 @@
                             <v-list class="bg-ozsc">
                                 <v-list-item
                                     v-for="item in more"
-                                    :key="item"
-                                    :title="item"
+                                    :key="item.name"
+                                    :title="item.name"
+                                    :to="item.path"
                                     @click="addItem(item)"
                                 ></v-list-item>
                             </v-list>
@@ -57,7 +66,6 @@
         >
             <v-card flat>
             <v-card-text>
-                <h2>{{ item }}</h2>
                 {{ text }}
             </v-card-text>
             </v-card>
@@ -71,11 +79,47 @@ export default {
   data () {
     return {
         currentItem: 'tab-Web',
+        fixedItems: [
+            {
+                name: 'Главная',
+                path: '/'
+            },
+            {
+                name: 'Наша продукция',
+                path: '/production/'
+            }
+        ],
         items: [
-            'Главная', 'О компании', 'Наша продукция', 'Контакты'
+            {
+                name: 'О компании',
+                path: '/company/'
+            },
+            {
+                name: 'Контакты',
+                path: '/contacts'
+            }
         ],
         more: [
-            'Сертификаты, декларации', 'Лабораторные испытания', 'Как это работает', 'Наши клиенты'
+            {
+                name: 'Сертификаты, декларации',
+                path: '/sertificates/'
+            },
+            {
+                name: 'Лабораторные испытания',
+                path: 'laboratory-tests'
+            },
+            {
+                name: 'Как это работает',
+                path: 'how-does-it-work'
+            },
+            {
+                name: 'Как купить',
+                path: 'sales'
+            },
+            {
+                name: 'Наши клиенты',
+                path: 'clients'
+            }
         ],
         text: 'Здесь можно написать первичный текст / новости про ОЗСК.'
     }

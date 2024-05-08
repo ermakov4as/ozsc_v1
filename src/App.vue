@@ -15,13 +15,13 @@ export default {
 <template>
   <div>
     <app-header></app-header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+    <v-card>
+      <v-row justify="center" no-gutters class="my-2">
+        <v-col class="text-center" cols="12">
           <router-view></router-view>
-        </div>
-      </div>
-    </div>
+        </v-col>
+      </v-row>
+    </v-card>
     <app-footer></app-footer>
     <!-- <notifications group="foo"/> -->
   </div>
